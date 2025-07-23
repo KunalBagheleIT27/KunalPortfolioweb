@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Kunal Baghele</title>
+
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries Link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Aapki CSS file ka link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#home" class="logo">Portfolio</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active" style="--i:1;">Home</a>
+            <a href="#about" style="--i:2;">About</a>
+            <a href="#services" style="--i:3;">Services</a>
+            <a href="#skills" style="--i:4;">Skills</a>
+            <a href="#projects" style="--i:5;">Projects</a>
+            <a href="#education" style="--i:6;">Education</a>
+            <a href="#contact" style="--i:7;">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Kunal Baghele</h1>
+            <h3>And I'm a <span class="text"></span></h3>
+            <p>
+                I am a passionate Full Stack Developer and Android Developer with a strong foundation in Java, Python, and Web Technologies.
+                I'm also enthusiastic about innovative tech, database management, and smart campus solutions.
+            </p>
+            <div class="home-sci">
+                <a href="https://www.linkedin.com/in/kunalbaghele27/" target="_blank" style="--i:1;"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="mailto:kunalbaghele2024.it@mmcoe.edu.in" style="--i:2;"><i class='bx bxl-gmail'></i></a>
+                <a href="https://github.com/KunalBagheleIT27" target="_blank" style="--i:3;"><i class='bx bxl-github'></i></a>
+            </div>
+            <a href="#about" class="btn-box">More About Me</a>
+        </div>
+
+        <div class="home-img">
+            <div class="image-card">
+                <img src="logoimage.jpg" alt="A photo of Kunal Baghele"
+                    onerror="this.onerror=null;this.src='https://placehold.co/350x350/081b29/ededed?text=Image+Not+Found';">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img ">
+            <img src="logoimage.jpg" alt="Kunal Photo" onerror="this.onerror=null;this.src='https://placehold.co/630x630/081b29/ededed?text=Image';">
+        </div>
+        <div class="about-text reveal">
+            <h2>About<span> Me</span></h2>
+            <h4>Full Stack Developer | Software Tester</h4>
+            <p>
+            
+                    
+            Beyond academics and technical skills, I bring a mindset shaped by humility, consistency, and a genuine hunger to
+                 grow. Coming from a small town and making my way through discipline and dedication, I’ve learned to value every 
+                 opportunity, no matter how small. I don’t just chase grades or certificates; I chase clarity, improvement, and impact. 
+                 Whether it’s staying up late to fix a tiny bug or helping a friend understand a concept, I believe growth multiplies when shared. 
+                I’m not here just to build a career, I’m here to become someone reliable, thoughtful, and always evolving..
+            </p>
+            <a href="https://drive.google.com/file/d/1E2v6UkmQ8TPYvRXJ9DD3vJIJ-U1rnooc/view?usp=sharing" target="_blank" class="btn-box">Download Resume</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h1 class="sub-title reveal">My <span>Services</span></h1>
+            <div class="services-list">
+                <div class="reveal">
+                    <i class='bx bx-code' style='color: #00eeff'></i>
+                    <h2>Software Development</h2>
+                    <p>Building custom websites, full-stack solutions, and mobile applications tailored to user needs with Java, Python, and modern frameworks.</p>
+                </div>
+                <div class="reveal">
+                    <i class='bx bx-crop' style='color: #00eeff'></i>
+                    <h2>Software Testing</h2>
+                    <p>Manual testing experience in real-time projects, ensuring quality through bug identification and reporting using Jira.</p>
+                </div>
+                <div class="reveal">
+                    <i class='bx bxl-android' style='color: #00eeff'></i>
+                    <h2>Android Development</h2>
+                    <p>Android app development using Java, with real-world applications like Campus Facilities App and CareSpace/LabSpace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h1 class="sub-title reveal">My <span>Skills</span></h1>
+        <div class="skills-tabs reveal">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="technical">Technical Skills</button>
+                <button class="tab-btn" data-tab="soft">Soft Skills</button>
+                <button class="tab-btn" data-tab="tools">Tools</button>
+            </div>
+            <div class="tab-content active" id="technical">
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                    <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                    <div class="skill-item"><i class="fab fa-java"></i><span>Java</span></div>
+                    <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="skill-item"><i class="fas fa-database"></i><span>MySQL</span></div>
+                </div>
+            </div>
+            <div class="tab-content" id="soft">
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-comments"></i><span>Communication</span></div>
+                    <div class="skill-item"><i class="fas fa-users"></i><span>Teamwork</span></div>
+                    <div class="skill-item"><i class="fas fa-network-wired"></i><span>Networking</span></div>
+                    <div class="skill-item"><i class="fas fa-clock"></i><span>Time Management</span></div>
+                </div>
+            </div>
+            <div class="tab-content" id="tools">
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="skill-item"><i class="fab fa-github"></i><span>GitHub</span></div>
+                    <div class="skill-item"><i class="fab fa-figma"></i><span>Figma</span></div>
+                    <div class="skill-item"><i class="fas fa-bug"></i><span>Jira</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h1 class="sub-title reveal">Latest <span>Work</span></h1>
+        <div class="work-tabs reveal">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="my-projects">My Projects</button>
+                <button class="tab-btn" data-tab="certificates">Certificates</button>
+            </div>
+            <div class="tab-content active" id="my-projects">
+                <div class="project-container">
+                    <div class="project-card"><img src="SRMSlogo.png" alt="Project 1 Image"><div class="project-layer"><h4>Student Result Management System (SRMS)</h4><p>A desktop-based Student Result Management System built with Python and SQLite that simplifies result entry, grade calculation, and student record management for educational institutions.</p><a href="https://github.com/KunalBagheleIT27/student-Managament-System-Using-Sqlite " target="_blank" class="read">View Code<> </a></div></div>
+                    <div class="project-card"><img src="CollegeSpaceLOGO.png" alt="Project 2 Image"><div class="project-layer"><h4>CollegeSpace</h4><p>An all-in-one Android app that streamlines essential college services—like hostel, library, assignments, events, and more—into a single, user-friendly platform.</p><a href="https://github.com/KunalBagheleIT27/CollegeSpace-AndriodApp" target="_blank" class="read">View Code<> </a></div></div>
+                </div>
+            </div>
+            <div class="tab-content" id="certificates">
+                <div class="certificate-container">
+                    <div class="certificate-item"><img src="projectCompGPG2024.jpg" alt="Certificate 1"></div>
+                    <div class="certificate-item"><img src="nashik quiz.jpg" alt="Certificate 2"></div>
+                    <div class="certificate-item"><img src="Conclave2024.jpg" alt="Certificate 3"></div>
+                    <div class="certificate-item"><img src="codexFusion2024.jpg" alt="Certificate 4"></div>
+                    <div class="certificate-item"><img src="TeckCode2024.jpg" alt="Certificate 5"></div>
+                    <div class="certificate-item"><img src="Depex2024.jpg" alt="Certificate 6"></div>
+                    <div class="certificate-item"><img src="trophy.jpg" alt="Certificate 7"></div>
+                    <div class="certificate-item"><img src="kunal cert.png" alt="Certificate 8"></div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox"><span class="close-btn">&times;</span><img class="lightbox-content" id="lightbox-img"></div>
+
+    <section class="education" id="education">
+        <h1 class="sub-title reveal">My <span>Journey</span></h1>
+        <div class="id-card-container">
+            <div class="id-card-item reveal"><div class="lanyard"></div><div class="id-card"><div class="id-card-top"></div><div class="id-card-icon"><i class="fas fa-graduation-cap"></i></div><div class="id-card-details"><h3>Bachelor of Engineering </h3><p>MMCOE, Pune<br> 9.0/10</p><span class="id-card-date">2024 - 2027</span></div></div></div>
+            <div class="id-card-item reveal"><div class="lanyard"></div><div class="id-card"><div class="id-card-top"></div><div class="id-card-icon"><i class="fas fa-laptop-code"></i></div><div class="id-card-details"><h3>Diploma in Computer Engineering</h3><p> G. P. Gondia (MSBTE) <br> 90.23%</p><span class="id-card-date">2021 - 2024</span></div></div></div>
+            <div class="id-card-item reveal"><div class="lanyard"></div><div class="id-card"><div class="id-card-top"></div><div class="id-card-icon"><i class="fas fa-school"></i></div><div class="id-card-details"><h3>SSC (10th Grade)</h3><p>Maharashtra State Board <br> 89.20%</p><span class="id-card-date">2021</span></div></div></div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h1 class="sub-title reveal">Contact <span>Me</span></h1>
+        <form action="https://api.web3forms.com/submit" method="POST" class="reveal">
+            <input type="hidden" name="access_key" value="063d6b6d-a53a-4930-b412-b820609a6085">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-box">Submit</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/kunalbaghele27/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="mailto:kunalbaghele2024.it@mmcoe.edu.in"><i class='bx bxl-gmail'></i></a>
+                <a href="https://github.com/KunalBagheleIT27" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
+            <p>Made with <i class='bx bxs-heart'></i> by Kunal Baghele</p>
+        </div>
+        <a href="#home" class="footer-icon-top"><i class='bx bx-up-arrow-alt'></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="main.js"></script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "J3NpNgvP8a-YbXy7XvANI"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+
+</body>
+</html>
