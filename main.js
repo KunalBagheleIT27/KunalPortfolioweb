@@ -105,3 +105,155 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+/* Chat UI behavior */
+document.addEventListener('DOMContentLoaded', () => {
+    // Chat launcher: when clicked, try to find the existing Chatbase widget button and trigger it.
+    const chatLauncher = document.getElementById('chat-launcher');
+    const chatBadge = document.getElementById('chat-launcher-badge');
+
+    function findChatOpenButton() {
+        // common heuristics to find an embed's open button in the page
+        const selectors = [
+            '[data-chatbase-widget]',
+            '[data-chatbase-launcher]',
+            '[aria-label*="chat"]',
+            '[title*="chat"]',
+            '[class*="chatbase"]',
+            '[class*="cb-"], [class*="chat-"], [class*="launcher"], [class*="widget"]'
+        ];
+        for (const sel of selectors) {
+            try {
+                const el = document.querySelector(sel);
+                if (el) return el;
+            } catch (e) { /* ignore invalid selectors */ }
+        }
+
+        // fallback: search any element that looks like a chat button by text
+        const all = Array.from(document.querySelectorAll('button, a, div'));
+        for (const el of all) {
+            const txt = (el.getAttribute('aria-label') || el.getAttribute('title') || el.innerText || '').toLowerCase();
+            if (txt.includes('chat') || txt.includes('help') || txt.includes('support')) return el;
+        }
+        return null;
+    }
+
+    async function triggerChatOpen() {
+        const btn = findChatOpenButton();
+        if (btn) {
+            // If it's hidden inside an iframe or not directly clickable, try focusing or dispatching events.
+            try {
+                btn.click();
+                return true;
+            } catch (e) {
+                try {
+                    const evt = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
+                    btn.dispatchEvent(evt);
+                    return true;
+                } catch (e2) {
+                    console.warn('Could not programmatically click chat button', e2);
+                }
+            }
+        }
+        return false;
+    }
+
+    if (chatLauncher) {
+        chatLauncher.addEventListener('click', async () => {
+            const opened = await triggerChatOpen();
+            if (!opened) {
+                // if no native chat found, as fallback open chatbase script loader (if present) by adding a small notice
+                chatLauncher.classList.add('shake');
+                setTimeout(() => chatLauncher.classList.remove('shake'), 600);
+                // temporarily show badge to indicate loading/failure
+                chatBadge.hidden = false;
+                chatBadge.innerText = '!';
+                setTimeout(() => { chatBadge.hidden = true; }, 2200);
+            }
+        });
+    }
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatPanel = document.getElementById('chat-panel');
+    const chatClose = document.getElementById('chat-close');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chat-body');
+    const chatUnread = document.getElementById('chat-unread');
+
+    let unread = 0;
+
+    function openChat() {
+        chatPanel.style.display = 'flex';
+        chatToggle.setAttribute('aria-pressed', 'true');
+        chatUnread.hidden = true;
+        unread = 0;
+        scrollChatToBottom();
+    }
+
+    function closeChat() {
+        chatPanel.style.display = 'none';
+        chatToggle.setAttribute('aria-pressed', 'false');
+    }
+
+    function scrollChatToBottom() {
+        setTimeout(() => { chatBody.scrollTop = chatBody.scrollHeight; }, 80);
+    }
+
+    function appendMessage(content, who = 'bot') {
+        const msg = document.createElement('div');
+        msg.className = 'msg ' + (who === 'user' ? 'user' : 'bot');
+        const bub = document.createElement('div');
+        bub.className = 'bubble';
+        bub.innerText = content;
+        msg.appendChild(bub);
+        chatBody.appendChild(msg);
+        scrollChatToBottom();
+    }
+
+    chatToggle && chatToggle.addEventListener('click', () => {
+        if (chatPanel.style.display === 'flex') {
+            closeChat();
+        } else {
+            openChat();
+        }
+    });
+
+    chatClose && chatClose.addEventListener('click', closeChat);
+
+    chatForm && chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = chatInput.value.trim();
+        if (!text) return;
+        appendMessage(text, 'user');
+        chatInput.value = '';
+
+        // simple bot reply (placeholder). Replace with real API if desired.
+        const typing = document.createElement('div');
+        typing.className = 'msg bot';
+        const tBubble = document.createElement('div');
+        tBubble.className = 'bubble';
+        tBubble.innerText = '...';
+        typing.appendChild(tBubble);
+        chatBody.appendChild(typing);
+        scrollChatToBottom();
+
+        setTimeout(() => {
+            typing.remove();
+            // basic helpful responses
+            let reply = "I heard: '" + text + "'. I can help update content, explain code, or suggest UI tweaks. What would you like?";
+            // very simple heuristic for quick answers
+            if (/resume|cv/i.test(text)) reply = 'You can attach a resume link in the About section or add a prominent Download Resume button.';
+            if (/projects|portfolio/i.test(text)) reply = 'Projects look best with consistent images and short descriptions—want me to align them or change styles?';
+            if (/contact|email/i.test(text)) reply = 'I recommend showing a contact card with email and LinkedIn; you already have a form—do you want socials shown more prominently?';
+
+            appendMessage(reply, 'bot');
+
+            // if panel is closed, increment unread
+            if (chatPanel.style.display !== 'flex') {
+                unread += 1;
+                chatUnread.hidden = false;
+                chatUnread.innerText = unread > 9 ? '9+' : unread;
+            }
+        }, 700 + Math.random() * 600);
+    });
+});

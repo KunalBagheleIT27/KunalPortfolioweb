@@ -1,0 +1,45 @@
+{
+  "name": "kunal-portfolio-react",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "serve": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "autoprefixer": "^10.4.14",
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^10.12.16",
+    "postcss": "^8.4.25",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-parallax-tilt": "^1.6.51",
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.9.4",
+    "react-typed": "^1.2.0",
+    "react-vertical-timeline-component": "^3.3.0",
+    "tailwindcss": "^3.4.7",
+    "tsparticles": "^2.9.4"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
